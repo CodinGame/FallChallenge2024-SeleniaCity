@@ -1,0 +1,337 @@
+<div class="statement-body">
+   <div class="statement-section statement-goal">
+      <h2><span class="icon icon-goal">&nbsp;</span><span>Objectif </span></h2>
+      <p class="statement-goal-content">Le projet est maintenant officiel&nbsp;: Selenia City, la première ville lunaire, sera inaugurée en 2050 !</p>
+      <p>L'agencement définitif de la ville n'étant pas encore fixé, les architectes sont à la recherche d'une solution pouvant s'adapter au mieux à toutes les configurations possibles.</p>
+      <p>Suite à votre victoire aux jeux planétaires d'informatique, c'est donc tout naturellement que vous avez été appelé pour concevoir l'intelligence artificielle qui développera le réseau de transports de Selenia City.</p>
+   </div>
+   <div class="statement-section statement-rules">
+      <h2><span class="icon icon-rules">&nbsp;</span><span>Règles</span></h2>
+      <div class="statement-rules-content">
+         <p>La partie se joue en <const>20</const> mois lunaires de <const>20</const> jours chacun.</p>
+         <p>Au début de chaque mois, vous recevrez des ressources ainsi que la liste des nouveaux bâtiments construits à Selenia City. Vous devrez alors utiliser judicieusement vos ressources pour raccorder les nouveaux bâtiments à votre réseau de transport ou renforcer les infrastructures existantes.</p>
+      </div>
+      <h2>Modes de transport</h2>
+      <div class="statement-rules-content">
+         <p>Deux modes de transport sont prévus sur la base lunaire&nbsp;: les <b>tubes magnétiques</b> et les <b>téléporteurs</b>.</p>
+         <details class="statement-section statement-protocol">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Tubes magnétiques</b></span>
+               <br>
+               <span>Cliquez pour afficher les détails</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <center style="margin: 20px">
+                  <img src="https://static.codingame.com/servlet/fileservlet?id=130026541439859" style="margin-bottom: 5px">
+                  <div>
+                     <em>Déplacement d'une capsule</em>
+                  </div>
+               </center>
+               <p>Les tubes magnétiques sont construits sur le sol lunaire et permettent de transporter des passagers dans des capsules. Ces tubes sont construits en ligne droite entre deux bâtiments et sont bidirectionnels.</p>
+               <p>Deux tubes <b>ne peuvent pas se croiser</b>, et chaque bâtiment ne peut être relié qu'à <const>5</const> tubes au maximum. Un tube magnétique ne peut pas non plus traverser un bâtiment sans s'y arrêter.</p>
+               <p>Chaque tube ne peut initialement accueillir qu'une seule capsule à la fois, qui traverse celui-ci en une journée (quelle que soit sa longueur) en embarquant un maximum de <const>10</const> passagers. Il est néanmoins possible d'augmenter la capacité d'un tube en dépensant des ressources (voir détail plus bas).</p>
+               <center style="margin: 20px">
+                  <img src="https://static.codingame.com/servlet/fileservlet?id=130026566301239" style="margin-bottom: 5px">
+                  <div>
+                     <em>Un tube amélioré</em>
+                  </div>
+               </center>
+               <p>Vous aurez la possibilité de configurer précisément l'itinéraire de chaque capsule, qui peut se déplacer librement dans le réseau de tubes magnétiques.</p>
+            </div>
+         </details>
+         <details class="statement-section statement-protocol">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Téléporteurs</b></span>
+               <br>
+               <span>Cliquez pour afficher les détails</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <p>Les téléporteurs forment un lien de transport instantané d'un bâtiment vers un autre. Ils ont une capacité de passagers illimitée, et les trajets de deux téléporteurs peuvent se croiser.</p>
+               <center style="margin: 20px">
+                  <img src="https://static.codingame.com/servlet/fileservlet?id=130026520023803" style="margin-bottom: 5px">
+                  <div>
+                     <em>Un groupe d'astronautes en téléportation</em>
+                  </div>
+               </center>
+               <p>Les équipements de réplication étant très volumineux, chaque bâtiment peut accueillir au maximum une entrée <b>ou</b> une sortie de téléporteur.</p>
+            </div>
+         </details>
+      </div>
+      <br>
+      <h2>Bâtiments</h2>
+      <div class="statement-rules-content">
+         <p>Les bâtiments de Selenia City sont organisés sur une zone rectangulaire de 160 x 90 kilomètres. Deux types de constructions existeront dans la ville&nbsp;: <b>les modules lunaires</b> et les <b>aires d'atterrissage</b>.</p>
+         <details class="statement-section statement-protocol">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Modules lunaires</b></span>
+               <br>
+               <span>Cliquez pour afficher les détails</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <center style="margin: 20px">
+                  <img src="https://static.codingame.com/servlet/fileservlet?id=130533301300005" style="height: 300px; margin-bottom: 5px">
+                  <div>
+                     <em>Les 20 types de modules lunaires à Selenia City</em>
+                  </div>
+               </center>
+               <p>Il existe différents types de modules lunaires (laboratoire, site de prélèvements, observatoire, ...) qui abriteront les habitants de la ville.</p>
+               <p>Vous devrez transporter chaque astronaute vers un bâtiment du type correspondant pour gagner des points. Il peut exister plusieurs modules d'un même type.</p>
+            </div>
+         </details>
+         <details class="statement-section statement-protocol">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Aires d'atterrissage</b></span>
+               <br>
+               <span>Cliquez pour afficher les détails</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <center style="margin: 20px">
+                  <img src="https://static.codingame.com/servlet/fileservlet?id=130026589572912" style="height: 300px; margin-bottom: 5px">
+                  <div>
+                     <em>Livraison de 20 astronautes sur une aire d'atterrissage</em>
+                  </div>
+               </center>
+               <p>Les sites d'atterrisage sont des bâtiments au fonctionnement spécial&nbsp;: à chaque début de mois, une fusée déposera sur chacun d'entre eux un groupe d'astronautes. La composition du groupe d'astronautes reste identique chaque mois&nbsp;: si par exemple une aire d'atterrissage reçoit 5 techniciens de laboratoire et 10 employés d'observatoire, un groupe identique arrivera au début de chaque mois.</p>
+               <p>Si plusieurs modules lunaires ont le type recherché par un astronaute, celui-ci pourra se rendre vers n'importe lequel de ces bâtiments.</p>
+               <p>Votre solution marquera davantage de points si elle parvient à bien équilibrer la population entre les modules lunaires de même type.</p>
+            </div>
+         </details>
+      </div>
+      <br>
+      <h2>Calcul du score</h2>
+      <div class="statement-rules-content">
+         <p>Votre objectif est d'avoir un maximum de points à l'issue de la simulation.</p>
+         <p>Chaque astronaute qui atteint un bâtiment cible avant la fin du mois lunaire rapportera jusqu'à <const>100</const> points&nbsp;:</p>
+         <ul>
+            <li>Pour la <b>rapidité</b>&nbsp;: <const>50</const> points, auxquels on soustrait le nombre de jours nécessaires à l'acheminement de l'astronaute.</li>
+            <li>Pour l'<b>équilibrage</b> de la population&nbsp;: <const>50</const> points, auxquels on soustrait le nombre d'astronautes déjà installés dans le module d'arrivée lors du mois lunaire en cours. S'il est négatif, ce score sera ramené à <const>0</const>.</li>
+         </ul>
+         <details class="statement-section statement-protocol">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Exemples</b></span>
+               <br>
+               <span>Cliquez pour afficher les détails</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <p><u>Exemple 1&nbsp;:</u> Un astronaute de type 4 arrive à Selenia City le premier jour du mois, et emprunte immédiatement un téléporteur qui l'amène de son aire d'atterrissage à un bâtiment de type 4.</p>
+               <p>Il est le premier à arriver sur sa base, vous gagnez donc <b>100 points</b> (50 points de rapidité et 50 points d'équilibrage).</p>
+               <br>
+
+               <p><u>Exemple 2&nbsp;:</u> Un astronaute emprunte un tube le premier jour pour quitter son aire d'atterrissage, puis un téléporteur suivi d'un tube le deuxième jour. Il arrive sur son module alors que 60 astronautes ont déjà été installés dans ce bâtiment depuis le début du mois.</p>
+               <p>Il vous rapportera ainsi <b>48 points</b> (48 points de rapidité et aucun point d'équilibrage).</p>
+            </div>
+         </details>
+      </div>
+   </div>
+   <div class="statement-section statement-protocol">
+      <h2><span class="icon icon-protocol">&nbsp;</span> <span>Implémentation</span></h2>
+      <p>Chaque mois lunaire se déroule en 4 étapes&nbsp;:</p>
+      <div class="blk">
+         <div class="title">1. Lecture de la carte</div>
+         <div class="question-statement-input">
+            <p>Au début de chaque mois, votre code recevra des informations concernant les nouvelles constructions à Selenia City.</p>
+
+            <details class="statement-section">
+               <summary style="cursor: pointer;display: inline-block;">
+                  <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Entrées du programme</b></span>
+                  <br>
+                  <span>Cliquez pour afficher les détails</span>
+               </summary>
+               <div class="blk">
+                  <br>
+                  <ul>
+                     <li><span class="statement-lineno">Sur la première ligne</span>, un entier <var>resources</var> représentant le nombre total de ressources à votre disposition.</li>
+                     <li><span class="statement-lineno">Sur la ligne suivante</span>, un entier <var>numTravelRoutes</var>, le nombre de chemins (tubes ou téléporteurs) actuellement présents sur la ville.</li>
+                     <li><span class="statement-lineno">Sur les <var>numTravelRoutes</var> lignes suivantes</span>, une description d'un tube ou d'un téléporteur sous la forme de 3 entiers <var>buildingId1</var>, <var>buildingId2</var> et <var>capacity</var> séparés par des espaces&nbsp;:
+	                     <ul>
+                           <li><var>buildingId1</var> et <var>buildingId2</var> sont les deux extrémités du téléporteur ou du tube.</li>
+	                        <li><var>capacity</var> vaut <const>0</const> si la ligne est un téléporteur, et représente la capacité du tube sinon.</li>
+                        </ul>
+                     </li>
+                     <li><span class="statement-lineno">Sur la ligne suivante</span>, un entier <var>numPods</var>, le nombre de capsules présentes dans le réseau.</li>
+                     <li><span class="statement-lineno">Sur les <var>numPods</var> lignes suivantes</span>, la description d'une capsule sous la forme d'une liste d'entiers séparés par des espaces&nbsp;:
+                        <ul>
+                           <li>Le premier entier représente l'identifiant unique de la capsule de transport.</li>
+                           <li>Le deuxième entier indique le nombre <var>numStops</var> d'arrêts sur le trajet de la capsule.</li>
+                           <li>Les <var>numStops</var> entiers qui suivent représentent l'itinéraire de la capsule, soit les identifiants de tous les bâtiments sur son trajet.</li>
+                        </ul>
+                     </li>
+                     <li><span class="statement-lineno">Sur la ligne suivante</span>, un entier <var>numNewBuildings</var>, le nombre de nouveaux bâtiments.</li>
+                     <li><span class="statement-lineno">Sur les <var>numNewBuildings</var> lignes suivantes</span>, la description d'un bâtiment venant d'être construit, sous la forme d'une liste d'entiers séparés par des espaces. Le format de chaque ligne dépend du type de bâtiment&nbsp;:
+                        <ul>
+                           <li>Si le bâtiment est une aire d'atterrissage&nbsp;: <var>0 buildingId coordX coordY numAstronauts astronautType1 astronautType2 ...</var></li>
+	                        <li>Sinon, le premier nombre de la ligne est strictement positif et le bâtiment est un module lunaire&nbsp;: <var>moduleType buildingId coordX coordY</var></li>
+                        </ul>
+                     </li>
+                  </ul>
+               
+                  <p>Voici un exemple de données qui pourraient être fournies à votre programme au début d'un tour de jeu, avec une explication de chaque ligne&nbsp;:</p>
+                  <img style="width:100%" src="https://static.codingame.com/servlet/fileservlet?id=129813963720775">
+               </div>
+            </details>
+
+         </div>
+         <div class="title">2. Construction de l'infrastructure de transport</div>
+         <div class="question-statement-input">
+            <p>Votre code pourra ensuite faire évoluer l'infrastructure de transport par le biais de certaines actions de construction et d'amélioration.</p>
+
+            <details class="statement-section">
+               <summary style="cursor: pointer;display: inline-block;">
+                  <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Actions possibles</b></span>
+                  <br>
+                  <span>Cliquez pour afficher les détails</span>
+               </summary>
+               <div class="blk">
+                  <br>
+                  <ul>
+                     <li><action>TUBE buildingId1 buildingId2</action>&nbsp;: construction d'un tube magnétique entre deux bâtiments. Le coût est de <const>1</const> ressource pour chaque 0.1km de tube installé, arrondi à l'entier inférieur.</li>
+                     <li><action>UPGRADE buildingId1 buildingId2</action>&nbsp;: augmentation de la capacité d'un tube. Vous devrez dépenser le coût de construction initial multiplié par la nouvelle capacité. Par exemple, si un tube a coûté 500 ressources à construire, vous devrez dépenser 1000 ressources pour augmenter sa capacité à 2 capsules, puis 1500 ressources pour 3 capsules, etc.</li>
+                     <li><action>TELEPORT buildingIdEntrance buildingIdExit</action>&nbsp;: construction d'un téléporteur. Cette action coûte <const>5 000</const> ressources.</li>
+                     <li><action>POD podId buildingId1 buildingId2 buildingId3 ...</action>&nbsp;: création d'une capsule de transport et définition de son itinéraire. L'identifiant de la capsule doit être unique et compris entre <const>1</const> et <const>500</const>. Si le dernier bâtiment du trajet est égal au premier, la capsule parcourra son itinéraire en boucle, sinon elle s'arrêtera après avoir atteint le dernier arrêt. Cette action coûte <const>1 000</const> ressources.</li>
+                     <li><action>DESTROY podId</action>&nbsp;: déconstruction d'une capsule de transport. Cette action vous permet de récupérer <const>750</const> ressources.</li>
+                     <li><action>WAIT</action>&nbsp;: pour n'effectuer aucune action.</li>
+                  </ul>
+                  <p>Pour exécuter plusieurs actions lors d'un même tour de jeu, vous pouvez séparer celles-ci avec un point-virgule comme suit&nbsp;: <action>TELEPORT 12 34;TUBE 23 45;UPGRADE 23 45</action>.</p>
+                  <p>Si une action est impossible (par manque de ressources, ou si une construction de tube croise le trajet d'un autre tube par exemple), celle-ci sera ignorée et un avertissement s'affichera dans la console de jeu. Pour savoir quelles actions se sont déroulées avec succès, votre code peut utiliser les données d'entrée qui lui sont fournies au début du mois suivant.</p>
+                  <p>Notez également que les tubes magnétiques et les téléporteurs sont permanents et ne peuvent pas être retirés une fois construits. Il est possible de changer le trajet d'une capsule en la détruisant et en la reconstruisant sur un autre itinéraire, ce qui vous coûtera 250 ressources.</p>
+               </div>
+            </details>
+         </div>
+         <div class="title">3. Déplacement des astronautes</div>
+         <div class="question-statement-input">
+            <p>Une fois que vous avez terminé vos modifications à l'infrastructure de transport, 20 jours lunaires s'écoulent durant lesquels les astronautes se déplacent sur le réseau de manière autonome pour rejoindre leurs modules.</p>
+
+            <details class="statement-section">
+               <summary style="cursor: pointer;display: inline-block;">
+                  <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Simulation des déplacements</b></span>
+                  <br>
+                  <span>Cliquez pour afficher les détails</span>
+               </summary>
+               <div class="blk">
+                  <br>
+                  <p>La traversée d'un tube magnétique prend toujours une journée, quelle que soit la distance parcourue. Sur un réseau donné, on peut donc définir la distance d'un bâtiment vers un autre comme le nombre minimal de tubes à emprunter pour effectuer le trajet complet (en s'autorisant aussi à utiliser les téléporteurs).</p>
+                  <p>Les astronautes planifient leur trajet de manière naïve, en cherchant à se rapprocher du bâtiment cible le plus proche (ou de n'importe quel bâtiment cible le plus proche s'il en existe plusieurs). Ils emprunteront ainsi le premier tube ou téléporteur disponible qui les rapproche de leur destination, sans considérer les capsules des jours suivants pour déterminer si leur trajet est optimal ni même réalisable.</p>
+                  <p>La phase de déplacement se déroule en 4 étapes chaque jour&nbsp;:</p>
+                  <ul>
+                     <li>Téléporteurs&nbsp;: chaque astronaute se trouvant sur l'entrée d'un téléporteur empruntera celui-ci, si le bâtiment d'arrivée a une distance <b>inférieure ou égale</b> à celle du bâtiment de départ. Comme la téléportation est instantanée, l'astronaute pourra ensuite emprunter un tube magnétique dans la même journée.</li>
+                     <li>Allocation des capsules dans les tubes magnétiques&nbsp;: il est possible que plusieurs capsules souhaitent emprunter un tube n'ayant pas la capacité suffisante pour toutes les accueillir. Dans ce cas, les capsules ayant le plus petit identifiant ont la priorité pour se déplacer, et les autres restent sur place pour la journée.</li>
+                     <li>Allocation des astronautes dans les capsules&nbsp;: chaque astronaute essaie de trouver une capsule avec au moins un siège libre qui le rapprochera de sa destination (soit une distance <b>strictement inférieure</b>), et s'installe à bord. Les astronautes choisissent chacun leur tour, par ordre croissant de l'identifiant de leur aire d'atterrissage. Si plusieurs choix permettent à un astronaute de s'approcher de sa destination, il choisira la capsule avec l'identifiant le plus petit.</li>
+                     <li>Lancement des capsules&nbsp;: chaque capsule se rend à sa destination avec ses astronautes à bord, puis tous les passagers descendent des capsules.</li>
+                  </ul>
+                  <center style="margin: 20px">
+                  <img src="https://static.codingame.com/servlet/fileservlet?id=130533326556374" style="height: 300px; margin-bottom: 5px">
+                  </center>
+                  <p>Dans l'animation ci-dessus, prenez le temps de comprendre le mouvement de chaque astronaute, qui peut parfois être surprenant&nbsp:</p>
+                  <ul>
+                     <li>Le premier jour, les astronautes rouges prennent le téléporteur vers le module 6, et il peut sembler contre-intuitif de "s'éloigner" de leur module cible. Cependant, les bâtiments 4 et 6 sont tous les deux à une distance 3 du module 0, et les astronautes utiliseront toujours un téléporteur tant que celui-ci <b>n'augmente pas</b> la distance vers leur cible.</li>
+                     <li>Les astronautes verts sur l'aire d'atterrissage 3 peuvent se déplacer vers le bâtiment 2 ou 4, qui sont tous les deux à distance 1 d'un module vert. Le premier jour, plusieurs astronautes empruntent la capsule de 3 à 4 à cause de leur algorithme de recherche de chemin naïf, et se retrouvent coincés là jusqu'à la fin du mois puisqu'aucune capsule n'ira de 4 vers 1.</li>
+                     <li>Souvenez-vous que les astronautes emprunteront une capsule uniquement si elle diminue <b>strictement</b> la distance vers leur cible. Le dixième jour, il paraît surprenant que les astronautes se déplacent de 3 vers 4 alors que ces deux bâtiments semblent être à la même distance du module 6. Cependant, <b>la distance de 4 à 6 est en réalité 0</b> grâce à la présence d'un téléporteur, puisque les calculs de distance comptent uniquement le nombre minimum de <b>tubes</b> pour se déplacer d'un bâtiment à un autre.
+                  </ul>
+               </div>
+            </details>
+         </div>
+         <div class="title">4. Fin du mois lunaire</div>
+         <div class="question-statement-input">
+            <p>À la fin de chaque mois, tous les astronautes restants disparaissent de l'aire de jeu et les capsules retournent immédiatement à leur point de départ. Toutes les ressources que vous n'avez pas utilisées rapportent un intérêt de <const>10%</const> (arrondi à l'entier inférieur).</p>
+         </div>
+      </div>
+      
+      <div class="blk">
+         <div class="title">Contraintes</div>
+         <div class="question-statement-constraints">
+            <ul>
+               <li>Au cours de la partie, au maximum <const>150</const> bâtiments seront construits.</li>
+               <li>Chaque aire d'atterrissage accueillera entre <const>1</const> et <const>100</const> astronautes chaque mois.</li>
+               <li>Il y aura au maximum <const>1000</const> astronautes arrivant chaque mois.</li>
+               <li>Il est garanti qu'aucun bâtiment n'apparaîtra sur le trajet d'un tube existant.</li>
+               <li>Votre programme devra renvoyer sa liste d'actions en moins de <const>500</const> millisecondes à chaque tour (<const>1000</const> millisecondes au premier tour).</li>
+               <li>Il est garanti que chaque astronaute arrivant sur une aire d'atterrissage aura au moins 1 module du même type déjà construit.</li>
+            </ul>
+            <p><b>Note&nbsp;:</b> les validateurs cachés, qui permettent le calcul du score de votre solution, seront changés entre la fermeture du challenge et le calcul du score final pour éviter les solutions codées en dur. Il vous est néanmoins garanti que les validateurs cachés seront similaires aux tests visibles.</p>
+         </div>
+      </div>
+      <div class="blk">
+         <h2><span class="icon icon-hint">&nbsp;</span> <span>Astuces pour bien démarrer</span></h2>
+         <ul>
+            <li>Commencez par programmer les capsules de transport de manière simple&nbsp;: des allers-retours sur une ligne devraient vous permettre d'obtenir de bons résultats.</li>
+            <li>L'identifiant de chaque capsule, que vous choisissez au moment de sa construction, sert également à établir l'ordre de priorité lors des déplacements. Vous pouvez l'utiliser pour désigner des navettes qui n'auront jamais à attendre qu'un tube se libère.</li>
+            <li>Il vous reste trop de ressources en fin de partie ? Créez des capsules et des téléporteurs pour accélérer le trajet de vos astronautes et marquer plus de points.</li>
+            <li>Si certains astronautes restent bloqués à cause de leur méthode naïve de recherche de chemin, essayez de faire en sorte que tous les tubes soient régulièrement traversés par des capsules dans chacun des deux sens.</li>
+            <li>Pour pouvoir créer un tube magnétique, celui-ci doit remplir 2 conditions&nbsp;: ne traverser aucun bâtiment (à l'exception de ses deux extrémités), et ne croiser aucun tube existant. Si vous avez du mal, n'hésitez pas à utiliser les deux algorithmes fournis ci-dessous&nbsp;:</li>
+         </ul>
+         <details class="statement-section" style="padding-bottom:10px;">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Calcul d'intersection point-segment</b></span>
+               <br>
+               <span>Cliquez pour afficher les détails</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <p>Pour vérifier si un bâtiment A se trouve sur un segment BC, on peut créer le triangle ABC et vérifier si la distance BC est égale à BA+AC.</p>
+               <code>fonction distance(p1, p2) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;renvoyer sqrt((p2.x-p1.x)² + (p2.y - p1.y)²)<br>
+}<br>
+<br>
+fonction pointOnSegment(A, B, C) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;epsilon = 0.0000001<br>
+&nbsp;&nbsp;&nbsp;&nbsp;renvoyer (-epsilon < distance(B, A) + distance(A, C) - distance(B, C) < epsilon)<br>
+}<br><br></code>
+               <p>Ici, la présence de <code>epsilon</code> sert à comparer des nombres flottants malgré leur précision limitée (dans la plupart des langages, <code>0.1 + 0.2 != 0.3</code>). Il existe d'autres méthodes utilisant uniquement des entiers, mais il vous est garanti que la fonction ci-dessus est valide pour tous les points entiers de la grille 160x90 avec la valeur d'epsilon donnée.</p>
+            </div>
+         </details>
+         
+         <details class="statement-section">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Calcul d'intersection segment-segment</b></span>
+               <br>
+               <span>Cliquez pour afficher les détails</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <p>Pour vérifier si deux segments AB et CD se croisent en dehors de leurs extrémités, vous pouvez utiliser la fonction <code>segmentsIntersect</code> définie ci-dessous&nbsp;:</p>
+               <code>fonction orientation(p1, p2, p3) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prod = (p3.y-p1.y) * (p2.x-p1.x) - (p2.y-p1.y) * (p3.x-p1.x)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;renvoyer sign(prod)<br>
+}<br>
+<br>
+fonction segmentsIntersect(A, B, C, D) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;renvoyer orientation(A, B, C) * orientation(A, B, D) < 0 && orientation(C, D, A) * orientation(C, D, B) < 0<br>
+}<br><br></code>
+               <p>Ici, la fonction <code>sign(x)</code> renvoie -1 si x est négatif, 0 s'il est nul et 1 s'il est positif.</p>
+            </div>
+         </details>
+         <h3 style="font-size: 14px;
+                  font-weight: 700;
+                  padding-top: 15px;
+                  color: #838891;
+                  padding-bottom: 15px;">
+         🐞 Astuces de débogage</h3>
+         <ul>
+            <li>Passez votre souris sur un tube, une capsule ou un bâtiment pour voir davantage d'informations à son propos.</li>
+            <li>Cliquez sur l'engrenage dans l'interface de jeu pour accéder à des options d'affichage supplémentaires.</li>
+            <li>Utilisez le clavier pour contrôler l'affichage&nbsp: barre espace pour play/pause, et les flèches pour faire défiler chaque jour.</li>
+         </ul>
+      </div>
+   </div>
+
+   <div class="statement-story-background">
+        <div class="statement-story-cover" style="background-size: cover; background-image: url(/servlet/fileservlet?id=130736360291142);">
+            <div class="statement-story" style="min-height: 200px; position: relative">
+
+                <div class="story-text">
+                    <h2><span style="color: #b3b9ad">Code source</span></h2>
+                <div class="story-text">
+                    <p>Vous pouvez voir le code source de ce jeu sur <a rel="nofollow" style="color: #f2bb13; border-bottom: 1px dotted #f2bb13;" target="_blank"
+                    href="https://github.com/CodinGame/FallChallenge2024-SeleniaCity">ce repo GitHub</a>.</p>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

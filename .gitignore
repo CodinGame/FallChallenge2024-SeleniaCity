@@ -1,0 +1,6 @@
+/target/
+/.project
+/.classpath
+SeleniaMain.java
+src/main/resources/view/node_modules/
+src/main/resources/view/graphics/

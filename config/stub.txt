@@ -1,0 +1,13 @@
+gameloop
+read resources:int
+read numTravelRoutes:int
+loop numTravelRoutes read buildingId1:int buildingId2:int capacity:int
+read numPods:int
+loop numPods read podProperties:string(200)
+read numNewBuildings:int
+loop numNewBuildings read buildingProperties:string(500)
+
+write TUBE 0 1;TUBE 0 2;POD 42 0 1 0 2 0 1 0 2
+
+OUTPUT
+TUBE | UPGRADE | TELEPORT | POD | DESTROY | WAIT

@@ -1,0 +1,337 @@
+<div class="statement-body">
+   <div class="statement-section statement-goal">
+      <h2><span class="icon icon-goal">&nbsp;</span><span>Objective </span></h2>
+      <p class="statement-goal-content">The project is now official: Selenia City, the first city on the moon, will be inaugurated in 2050!</p>
+      <p>The definitive layout of the city hasn't been fully determined yet, so the architects are looking for a solution that could best adapt to all possible configurations.</p>
+      <p>After your victory in the planetary programming games, you were the first to be called to design the artificial intelligence that will develop the first transportation network on the moon.</p>
+   </div>
+   <div class="statement-section statement-rules">
+      <h2><span class="icon icon-rules">&nbsp;</span><span>Rules</span></h2>
+      <div class="statement-rules-content">
+         <p>The game is played in <const>20</const> lunar months of <const>20</const> days each.</p>
+         <p>At the beginning of each month, you will receive resources as well as the list of new buildings constructed in Selenia City. You will then need to use your resources efficiently to connect the new buildings to the network, or reinforce the existing infrastructure.</p>
+      </div>
+      <h2>Transportation modes</h2>
+      <div class="statement-rules-content">
+         <p>There are two transportation modes on the lunar base: <b>magnetic tubes</b> and <b>teleporters</b>.</p>
+         <details class="statement-section statement-protocol">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Magnetic tubes</b></span>
+               <br>
+               <span>Click for details</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <center style="margin: 20px">
+                  <img src="https://static.codingame.com/servlet/fileservlet?id=130026541439859" style="margin-bottom: 5px">
+                  <div>
+                     <em>Pod travel</em>
+                  </div>
+               </center>
+               <p>Magnetic tubes are built on the lunar ground and allow transport pods to carry astronauts through them. They are built in a straight line between two buildings and are bidirectional.</p>
+               <p>Two tubes <b>cannot cross</b> each other, and each building can only be connected to at most <const>5</const> magnetic tubes. A magnetic tube cannot pass through a building without stopping there.</p>
+               <p>Initially, each tube can only accommodate a single pod at a time, which takes an entire day to travel through it (regardless of its length) while carrying a maximum of <const>10</const> passengers. It is however possible to upgrade tubes so they can be traversed by several pods simultaneously.</p>
+               <center style="margin: 20px">
+                  <img src="https://static.codingame.com/servlet/fileservlet?id=130026566301239" style="margin-bottom: 5px">
+                  <div>
+                     <em>An upgraded tube</em>
+                  </div>
+               </center>
+               <p>You will have the possibility to configure precisely the path of each transport pod, which can travel freely through the network of tubes.</p>
+            </div>
+         </details>
+         <details class="statement-section statement-protocol">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Teleporters</b></span>
+               <br>
+               <span>Click for details</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <p>Teleporters provide a very efficient way of traveling, although they are more expensive to build than tubes. They allow astronauts to move instantly from a building to another, without limits on how many passengers can use it at once. The path of two teleporters can cross.</p>
+               <center style="margin: 20px">
+                  <img src="https://static.codingame.com/servlet/fileservlet?id=130026520023803" style="margin-bottom: 5px">
+                  <div>
+                     <em>Astronauts teleporting</em>
+                  </div>
+               </center>
+               <p>Since replication equipment is very bulky, each building can only accommodate a teleporter entrance <b>or</b> exit.</p>
+            </div>
+         </details>
+      </div>
+      <br>
+      <h2>Buildings</h2>
+      <div class="statement-rules-content">
+         <p>Buildings in Selenia City are organized on a rectangular area of 160 x 90 kilometers. Two types of buildings will exist in the city: <b>lunar modules</b> and <b>landing pads</b>.</p>
+         <details class="statement-section statement-protocol">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Lunar modules</b></span>
+               <br>
+               <span>Click for details</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <center style="margin: 20px">
+                  <img src="https://static.codingame.com/servlet/fileservlet?id=130533301300005" style="height: 300px; margin-bottom: 5px">
+                  <div>
+                     <em>The 20 types of lunar modules in Selenia City</em>
+                  </div>
+               </center>
+               <p>There are several different types of lunar modules (laboratory, ground sampling site, observatory, ...) that will permanently house the astronauts.</p>
+               <p>You need to transport each astronaut to a building of the corresponding type in order to win points. There may exist several modules of the same type in Selenia City.</p>
+            </div>
+         </details>
+         <details class="statement-section statement-protocol">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Landing pads</b></span>
+               <br>
+               <span>Click for details</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <center style="margin: 20px">
+                  <img src="https://static.codingame.com/servlet/fileservlet?id=130026589572912" style="height: 300px; margin-bottom: 5px">
+                  <div>
+                     <em>20 astronauts delivered on a landing pad</em>
+                  </div>
+               </center>
+               <p>Landing pads are buildings that work in a special way: at the beginning of each month, a rocket will drop a group of astronauts on each of them. The composition of the group is fixed: if for example a landing pad welcomes 5 lab technicians and 10 observatory employees, an identical group will arrive each month.</p>
+               <p>If several lunar modules have the same type as the astronaut, he may settle into any of them.</p>
+               <p>Your solution will score more points if it manages to balance the astronaut population well between modules of the same type</p>
+            </div>
+         </details>
+      </div>
+      <br>
+      <h2>Scoring</h2>
+      <div class="statement-rules-content">
+         <p>Your objective is to score as many points as possible before the end of the simulation.</p>
+         <p>Each astronaut reaching its target before the end of the lunar month will give you up to <const>100</const> points:</p>
+         <ul>
+            <li>For <b>speed</b>: <const>50</const> points, from which are deducted the number of days needed by the astronaut to reach the destination.</li>
+            <li>For <b>balancing</b> the population: <const>50</const> points, from which are deducted the number of astronauts who have already reached the same module during the current lunar month. If it's negative, this score will be brought back to <const>0</const>.</li>
+         </ul>
+         <details class="statement-section statement-protocol">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Examples</b></span>
+               <br>
+               <span>Click for details</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <p><u>Example 1&nbsp;:</u> An astronaut of type 4 arrives in Selenia City on the first day of the month, and immediately takes a teleporter that takes her from the landing pad to a building of type 4.</p>
+               <p>She is the first one to reach her base, you will score <b>100 points</b> (50 speed points and 50 balancing points).</p>
+               <br>
+
+               <p><u>Example 2&nbsp;:</u> An astronaut takes a pod through a magnetic tube on the first day to leave his landing pad, then a teleporter followed by another tube on the second day. He reaches his module as 60 astronauts have previously been installed in this building during that month.</p>
+               <p>He will earn you <b>48 points</b> (48 speed points and no balancing point).</p>
+            </div>
+         </details>
+      </div>
+   </div>
+   <div class="statement-section statement-protocol">
+      <h2><span class="icon icon-protocol">&nbsp;</span> <span>Implementation</span></h2>
+      <p>Each lunar month happens in 4 stages&nbsp;:</p>
+      <div class="blk">
+         <div class="title">1. City parsing</div>
+         <div class="question-statement-input">
+            <p>At the beginning of each month, your code receives information about new constructions in Selenia City.</p>
+
+            <details class="statement-section">
+               <summary style="cursor: pointer;display: inline-block;">
+                  <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Program input</b></span>
+                  <br>
+                  <span>Click for details</span>
+               </summary>
+               <div class="blk">
+                  <br>
+                  <ul>
+                     <li><span class="statement-lineno">On the first line</span>, an integer <var>resources</var> representing the total amount of resources you currently have.</li>
+                     <li><span class="statement-lineno">On the next line</span>, an integer <var>numTravelRoutes</var>, the number of routes (tubes or teleporters) currently present in the city.</li>
+                     <li><span class="statement-lineno">On the next <var>numTravelRoutes</var> lines</span>, the description of a tube or teleporter as a list of three space-separated integers <var>buildingId1</var>, <var>buildingId2</var> and <var>capacity</var>:
+	                     <ul>
+                           <li><var>buildingId1</var> and <var>buildingId2</var> are the ends of the tube or teleporter.</li>
+	                        <li><var>capacity</var> equals <const>0</const> if the route is a teleporter, and represents the capacity of the tube otherwise.</li>
+                        </ul>
+                     </li>
+                     <li><span class="statement-lineno">On the next line</span>, an integer <var>numPods</var>, the number of transport pods currently present in the network of magnetic tubes.</li>
+                     <li><span class="statement-lineno">On the next <var>numPods</var> lines</span>, the description of a pod as a list of space-separated integers:
+                        <ul>
+                           <li>The first integer is the unique identifier of the pod.</li>
+                           <li>The second integer is the number <var>numStops</var> of stops in the pod's path.</li>
+                           <li>The next <var>numStops</var> integers represent the pod's path, i.e. the identifiers of each building on its itinerary.</li>
+                        </ul>
+                     </li>
+                     <li><span class="statement-lineno">On the next line</span>, an integer <var>numNewBuildings</var>, the number of buildings that have just been constructed.</li>
+                     <li><span class="statement-lineno">On the next <var>numNewBuildings</var> lines</span>, the description of a new building, as a list of space-separated integers. The format of each line depends on the building type:
+                        <ul>
+                           <li>If the building is a landing pad: <var>0 buildingId coordX coordY numAstronauts astronautType1 astronautType2 ...</var></li>
+	                        <li>Otherwise, the first number is positive and the building is a lunar module: <var>moduleType buildingId coordX coordY</var></li>
+                        </ul>
+                     </li>
+                  </ul>
+               
+                  <p>Here's an example of input data which could be provided to your program at the beginning of its turn, with an explanation of each line:</p>
+                  <img style="width:100%" src="https://static.codingame.com/servlet/fileservlet?id=129813988810196">
+               </div>
+            </details>
+
+         </div>
+         <div class="title">2. Transport infrastructure improvements</div>
+         <div class="question-statement-input">
+            <p>Your code can then transform the city through actions that allow you to build and improve its transportation network.</p>
+
+            <details class="statement-section">
+               <summary style="cursor: pointer;display: inline-block;">
+                  <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Allowed actions</b></span>
+                  <br>
+                  <span>Click for details</span>
+               </summary>
+               <div class="blk">
+                  <br>
+                  <ul>
+                     <li><action>TUBE buildingId1 buildingId2</action>: create a magnetic tube between two buildings. The cost is <const>1</const> resource for each 0.1km of tube installed, rounded down.</li>
+                     <li><action>UPGRADE buildingId1 buildingId2</action>: increase the capacity of a tube by 1. You will need to spend the initial construction cost multiplied by the new capacity. For example, if a tube initially cost 500 resources to build, you have to spend 1000 resources to improve its capacity to 2 pods, then 1500 resources for 3 pods, etc.</li>
+                     <li><action>TELEPORT buildingIdEntrance buildingIdExit</action>: build a teleporter. This action costs <const>5,000</const> resources.</li>
+                     <li><action>POD podId buildingId1 buildingId2 buildingId3 ...</action>: create a transport pod and define its path. The pod identifier must be included between <const>1</const> and <const>500</const>. If the last stop is the same as the first, the pod will loop around the path indefinitely, otherwise it will remain in place after reaching its last stop. This action costs <const>1,000</const> resources.</li>
+                     <li><action>DESTROY podId</action>: deconstruct a transport pod. This action gives you <const>750</const> resources back.</li>
+                     <li><action>WAIT</action>: don't perform any action this turn.</li>
+                  </ul>
+                  <p>In order to execute several actions during the same game turn, you can separate them with a semicolon like this: <action>TELEPORT 12 34;TUBE 23 45;UPGRADE 23 45</action>.</p>
+                  <p>If an action is impossible (lacking sufficient resources, or if building a tube would cross the path of another for example), it will be ignored and a warning will display in the game console. In order to determine which actions have been performed successfully, your code can use the input data provided at the beginning of the following month.</p>
+                  <p>Also note that tubes and teleporters are permanent and can never be removed. It is possible to change the path of a pod by deconstructing then rebuilding it on a different route, which costs 250 resources.</p>
+               </div>
+            </details>
+         </div>
+         <div class="title">3. Astronaut movement</div>
+         <div class="question-statement-input">
+            <p>Once all modifications have been applied to the transport network, 20 days will happen during which astronauts move within the network autonomously towards their target modules.</p>
+
+            <details class="statement-section">
+               <summary style="cursor: pointer;display: inline-block;">
+                  <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Movement simulation</b></span>
+                  <br>
+                  <span>Click for details</span>
+               </summary>
+               <div class="blk">
+                  <br>
+                  <p>Traversing a magnetic tube always takes one day, regardless of the distance. On a given network, we can then define the distance from one building to another as the minimal number of tubes needed to make the entire trip (teleporters can be used in said trip).</p>
+                  <p>Astronauts plan their route in a naive way, by trying to move towards their nearest target module (or any nearest module if several exist). They will take any tube or teleporter available that takes them closer to their destination, without actually considering the pods scheduled on the following days to determine whether their trajectory is optimal or even feasible.</p>
+                  <p>The movement phase happens in 4 steps each day:</p>
+                  <ul>
+                     <li>Teleporters: each astronaut standing on a teleporter entrance will take it, if the exit building has a distance to the target <b>less than or equal</b> to the entrance building. Since teleportation is instantaneous, the astronaut can then take a magnetic tube in the same day.</li>
+                     <li>Allocation of pods in magnetic tubes: it is possible that several pods are trying to move through a tube that has insufficient capacity to accommodate them all. In this case, pods with the smallest identifier are given priority, and the others remain in place until the next day.</li>
+                     <li>Allocation of astronauts in pods: each astronaut tries to find a pod with a free seat that will move towards their destination (i.e. a <b>strictly lower</b> distance), and hops on board. Astronauts choose in order, the astronauts who come from a landing pad with lower identifier pick first. If several options can bring an astronaut closer to their target, the pod with the smallest identifier will be chosen.</li>
+                     <li>Launch of all pods: each pod moves towards its next step with its astronauts on board, then all passengers disembark.</li>
+                  </ul>
+                  <center style="margin: 20px">
+                  <img src="https://static.codingame.com/servlet/fileservlet?id=130533326556374" style="height: 300px; margin-bottom: 5px">
+                  </center>
+                  <p>In the animation above, take the time to understand why each astronaut moves the way they do, sometimes in surprising ways:</p>
+                  <ul>
+                     <li>On the first day, the red astronauts teleport to module 6, which seems counterintuitive to move "away" from their target module. However, buildings 4 and 6 are both 3 tubes away from their destination at building 0, and astronauts will always take a teleporter if it <b>does not increase</b> their distance to the target.</li>
+                     <li>Green astronauts in landing pad 3 can move to either building 2 or 4, which are both 1 tube away from a green module. On the first day, 10 green astronauts take the pod from 3 to 4 due to their naive pathfinding algorithm, only to become stranded there until the end of the month because no pod will ever go from 4 to 1.</li>
+                     <li>Remember that astronauts will only take a pod if it <b>strictly</b> lowers the distance to their target. On day 10, it can be surprising that blue astronauts move from 3 to 4, because both buildings seem to be the same distance away from their target at building 6. However, <b>the distance from 4 to 6 is actually 0</b> due to the presence of a teleporter, since distance calculations will only count the minimal number of <b>tubes</b> to move from one building to another.
+                  </ul>
+               </div>
+            </details>
+         </div>
+         <div class="title">4. End of the lunar month</div>
+         <div class="question-statement-input">
+            <p>At the end of each month, all remaining astronauts disappear from the play area and all pods immediately return to their starting point. All unused resources yield a <const>10%</const> interest (rounded down).</p>
+         </div>
+      </div>
+      
+      <div class="blk">
+         <div class="title">Constraints</div>
+         <div class="question-statement-constraints">
+            <ul>
+               <li>During the game, at most <const>150</const> buildings will be constructed.</li>
+               <li>Each landing pad will welcome between <const>1</const> and <const>100</const> astronauts each month.</li>
+               <li>At most <const>1000</const> astronauts will arrive each month.</li>
+               <li>It is guaranteed that no building will be constructed on the path of an existing tube.</li>
+               <li>Your program has to return its list of actions within <const>500</const> milliseconds each turn (<const>1000</const> milliseconds for the first turn).</li>
+               <li>It is guaranteed that each astronaut arriving on a landing pad will have at least 1 module of the same type already built.</li>
+            </ul>
+            <p><b>Note:</b> hidden validators, on which the score of your solution is evaluated on the leaderboard, will be changed between the challenge's end and the final score calculation in order to avoid hardcoded solutions. It is however guaranteed that hidden validators will be similar to the visible testcases.</p>
+         </div>
+      </div>
+      <div class="blk">
+         <h2><span class="icon icon-hint">&nbsp;</span> <span>Tips for getting started</span></h2>
+         <ul>
+            <li>Start by programming your transport pods in a simple way: moving back-and-forth on a line is usually quite efficient.</li>
+            <li>The identifier of each pod, which you get to pick when building it, is also used to determine movement priorities. You can use it wisely to create pods that will never need to wait in case of a congestion.</li>
+            <li>Too many resources left at the end of the game? Create more pods and teleporters to accelerate transit and score more points.</li>
+            <li>If some astronauts become stranded due to their flawed naive pathfinding algorithm, try to make sure all tubes are regularly traversed by pods in both directions.</li>
+            <li>In order to be able to create a magnetic tube, it needs to meet 2 conditions: it must not pass through any building (besides its two ends), and it must not cross an existing tube. If you have trouble implementing these conditions, feel free to use the algorithms provided below:</li>
+         </ul>
+         <details class="statement-section" style="padding-bottom:10px;">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Point-segment intersection</b></span>
+               <br>
+               <span>Click for details</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <p>To verify whether building A stands on segment BC, it is possible to create triangle ABC and check if distance BC equals BA+AC.</p>
+               <code>function distance(p1, p2) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return sqrt((p2.x-p1.x)² + (p2.y - p1.y)²)<br>
+}<br>
+<br>
+fonction pointOnSegment(A, B, C) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;epsilon = 0.0000001<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return (-epsilon < distance(B, A) + distance(A, C) - distance(B, C) < epsilon)<br>
+}<br><br></code>
+               <p>Here, the presence of <code>epsilon</code> is used to compare floating-point numbers despite their limited precision (in most languages, <code>0.1 + 0.2 != 0.3</code>). There are other methods involving only integers, but it is guaranteed that the algorithm above works for all integer points in the 160x90 grid with the given epsilon value.</p>
+            </div>
+         </details>
+         
+         <details class="statement-section">
+            <summary style="cursor: pointer;display: inline-block;">
+               <span style="display: inline-block; margin-bottom: 10px;color:#f2bb13"><b>Segment-segment intersection</b></span>
+               <br>
+               <span>Click for details</span>
+            </summary>
+            <div class="blk">
+               <br>
+               <p>To verify whether two line segments AB and CD cross outside their extremities, you can use the <code>segmentsIntersect</code> function defined below:</p>
+               <code>function orientation(p1, p2, p3) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prod = (p3.y-p1.y) * (p2.x-p1.x) - (p2.y-p1.y) * (p3.x-p1.x)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return sign(prod)<br>
+}<br>
+<br>
+function segmentsIntersect(A, B, C, D) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return orientation(A, B, C) * orientation(A, B, D) < 0 && orientation(C, D, A) * orientation(C, D, B) < 0<br>
+}<br><br></code>
+               <p>Here, the function <code>sign(x)</code> returns -1 if x is negative, 0 if it's zero and 1 if it's positive.</p>
+            </div>
+         </details>
+         <h3 style="font-size: 14px;
+                  font-weight: 700;
+                  padding-top: 15px;
+                  color: #838891;
+                  padding-bottom: 15px;">
+         🐞 Debugging tips</h3>
+         <ul>
+            <li>Hover over any tube, pod or building to see extra information about it.</li>
+            <li>Press the gear icon on the viewer to access extra display options.</li>
+            <li>Use the keyboard to control the action: space to play/pause, arrows to step 1 frame at a time.</li>
+         </ul>
+      </div>
+   </div>
+   
+   <div class="statement-story-background">
+        <div class="statement-story-cover" style="background-size: cover; background-image: url(/servlet/fileservlet?id=130736360291142);">
+            <div class="statement-story" style="min-height: 200px; position: relative">
+
+                <div class="story-text">
+                    <h2><span style="color: #b3b9ad"><b>Source code</b></span></h2>
+                    The game's source is available <a style="color: #f2bb13; border-bottom-color: #f2bb13;" target="_blank"
+                        href="https://github.com/CodinGame/FallChallenge2024-SeleniaCity">here</a>.
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
