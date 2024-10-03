@@ -267,7 +267,8 @@ public class TravelManager {
         }
 
         // STEP 3 : Move astronauts in tubes
-        for (Astronaut astronaut : new HashSet<Astronaut>(astronauts)) {
+        List<Astronaut> sortedAstronauts = astronauts.stream().sorted().toList();
+        for (Astronaut astronaut : sortedAstronauts) {
             Building currentBuilding = astronaut.currentBuilding;
             if (!podsLeavingBuildings.containsKey(currentBuilding)) {
                 // No pods leaving current building, skip.
