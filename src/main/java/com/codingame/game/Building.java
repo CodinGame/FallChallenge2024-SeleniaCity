@@ -1,6 +1,6 @@
 package com.codingame.game;
 
-public abstract class Building {
+public abstract class Building implements Comparable<Building> {
     public int id;
     public int x, y;
     public int remainingTubeSlots;
@@ -32,5 +32,10 @@ public abstract class Building {
         }
         Building other = (Building) obj;
         return this.id == other.id;
+    }
+    
+    @Override
+    public int compareTo(Building other) {
+        return Integer.compare(this.id, other.id);
     }
 }

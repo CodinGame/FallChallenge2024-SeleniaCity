@@ -2,13 +2,13 @@ package com.codingame.game;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Queue;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -35,7 +35,7 @@ public class TravelManager {
         // Complexity is O(|V|) since |E| is bounded
 
         HashMap<Building, Integer> buildingDistance = new HashMap<Building, Integer>();
-        Queue<Building> toVisit = new LinkedList<Building>();
+        Deque<Building> toVisit = new LinkedList<Building>();
 
         buildingDistance.put(startBuilding, 0);
         toVisit.add(startBuilding);
@@ -49,7 +49,7 @@ public class TravelManager {
                 Teleporter tp = city.teleporterByBuilding.get(visiting);
                 if (tp.buildings.building1 == visiting && !buildingDistance.containsKey(tp.buildings.building2)) {
                     buildingDistance.put(tp.buildings.building2, currDistance);
-                    toVisit.add(tp.buildings.building2);
+                    toVisit.addFirst(tp.buildings.building2);
                 }
             }
 

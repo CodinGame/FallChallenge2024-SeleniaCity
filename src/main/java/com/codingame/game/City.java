@@ -2,9 +2,10 @@ package com.codingame.game;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 public class City {
-    public HashMap<Integer, TransportPod> pods;
+    public TreeMap<Integer, TransportPod> pods;
 
     public HashMap<BuildingPair, Tube> tubes;
     public HashMap<Building, ArrayList<Tube>> tubesByBuilding;
@@ -12,17 +13,17 @@ public class City {
     public HashMap<BuildingPair, Teleporter> teleporters;
     public HashMap<Building, Teleporter> teleporterByBuilding;
 
-    public HashMap<Integer, Building> buildings;
+    public TreeMap<Integer, Building> buildings;
     public int resources;
     public int maxY;
 
     public City() {
-        pods = new HashMap<Integer, TransportPod>();
+        pods = new TreeMap<Integer, TransportPod>();
         tubes = new HashMap<BuildingPair, Tube>();
         tubesByBuilding = new HashMap<Building, ArrayList<Tube>>();
         teleporters = new HashMap<BuildingPair, Teleporter>();
         teleporterByBuilding = new HashMap<Building, Teleporter>();
-        buildings = new HashMap<Integer, Building>();
+        buildings = new TreeMap<Integer, Building>();
         resources = 0;
         maxY = 0;
     }
