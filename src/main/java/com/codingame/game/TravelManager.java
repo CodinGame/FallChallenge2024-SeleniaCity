@@ -1,14 +1,14 @@
 package com.codingame.game;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.PriorityQueue;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -31,25 +31,33 @@ public class TravelManager {
     }
 
     public HashMap<Building, Integer> singleSourceShortestPath(Building startBuilding) {
-        // Perform BFS on a single source
-        // Complexity is O(|V|) since |E| is bounded
+        // Perform Dijkstra's algorithm on a single source
+        // Complexity is O(|V| log(|V|)) since |E| is bounded
 
         HashMap<Building, Integer> buildingDistance = new HashMap<Building, Integer>();
-        Deque<Building> toVisit = new LinkedList<Building>();
+        PriorityQueue<Map.Entry<Building, Integer> > toVisit = new PriorityQueue<Map.Entry<Building, Integer> >(Map.Entry.comparingByValue());
 
         buildingDistance.put(startBuilding, 0);
-        toVisit.add(startBuilding);
+        toVisit.offer(new AbstractMap.SimpleEntry<>(startBuilding, 0));
 
         while (!toVisit.isEmpty()) {
-            Building visiting = toVisit.remove();
-            int currDistance = buildingDistance.get(visiting);
+        	Map.Entry<Building, Integer> currentEntry = toVisit.poll();
+            Building visiting = currentEntry.getKey();
+            int currDistance = currentEntry.getValue();
+            
+            if (currDistance > buildingDistance.getOrDefault(visiting, Integer.MAX_VALUE)) {
+            	continue; // Already explored a better path, ignore
+            }
 
             // Process teleporter first
             if (city.teleporterByBuilding.containsKey(visiting)) {
                 Teleporter tp = city.teleporterByBuilding.get(visiting);
-                if (tp.buildings.building1 == visiting && !buildingDistance.containsKey(tp.buildings.building2)) {
-                    buildingDistance.put(tp.buildings.building2, currDistance);
-                    toVisit.addFirst(tp.buildings.building2);
+                if (tp.buildings.building1 == visiting) {
+                	if (currDistance < buildingDistance.getOrDefault(tp.buildings.building2, Integer.MAX_VALUE)) {
+                		// Found new or better path, relax edge
+                		buildingDistance.put(tp.buildings.building2, currDistance);
+                		toVisit.offer(new AbstractMap.SimpleEntry<>(tp.buildings.building2, currDistance));
+                	}
                 }
             }
 
@@ -63,10 +71,11 @@ public class TravelManager {
                         otherBuilding = tube.buildings.building1;
                     }
 
-                    if (!buildingDistance.containsKey(otherBuilding)) {
-                        buildingDistance.put(otherBuilding, currDistance + 1);
-                        toVisit.add(otherBuilding);
-                    }
+                    if (currDistance + 1 < buildingDistance.getOrDefault(otherBuilding, Integer.MAX_VALUE)) {
+                		// Found new or better path, relax edge
+                		buildingDistance.put(otherBuilding, currDistance + 1);
+                		toVisit.offer(new AbstractMap.SimpleEntry<>(otherBuilding, currDistance + 1));
+                	}
                 }
             }
         }
